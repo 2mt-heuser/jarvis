@@ -8,7 +8,7 @@
 // Commands:
 //   jarvis was hört sebi gerade für musik? - Man kann auch Montag morgen 8:00 abzappeln!!!111
 
-const musicSebi = /was.*hört.*sebi.*\s(?:(.*))\?$/i;
+const musicSebi = /was.*hört.*sebi.*\s(?:(.*))\?\s*$/i;
 
 module.exports = (robot) => {
   robot.respond(musicSebi, (res) => {

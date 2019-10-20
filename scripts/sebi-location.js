@@ -8,7 +8,7 @@
 // Commands:
 //   jarvis wo ist sebi gerade unterwegs in deutschland? - Findet Sebi! :)
 
-const whereSebi = /wo.*ist.*sebi.*\?/i;
+const whereSebi = /wo.*ist.*sebi.*\?\s*$/i;
 
 module.exports = (robot) => {
   robot.respond(whereSebi, (res) => {
