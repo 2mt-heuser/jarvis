@@ -1,1 +1,1 @@
-["hubot-env"]
+["hubot-env", "hubot-redis-brain"]

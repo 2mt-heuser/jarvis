@@ -10,7 +10,7 @@ const trigger = /hamburg/i;
 let onCooldown = false, timeoutHandle;
 
 module.exports = (robot) => {
-  robot.respond(trigger, (res) => {
+  robot.hear(trigger, (res) => {
     res.finish();
     if (!onCooldown) {
       let message = {
