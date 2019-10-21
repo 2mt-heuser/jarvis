@@ -6,7 +6,6 @@
   "description": "I'm Jarvis",
   "dependencies": {
     "hubot": "^3.3.2",
-    "hubot-env": "0.0.2",
     "hubot-matteruser": "^5.3.1",
     "hubot-redis-brain": "^1.0.0",
     "hubot-scripts": "^2.17.2",
