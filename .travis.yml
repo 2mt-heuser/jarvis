@@ -1,0 +1,11 @@
+language: c
+sudo: false
+env:
+  global:
+  - secure: iHjUXJQLMY3/kkDWPQ6Mh4gw9xCGmkLsZNRv9wuxEHAI7SC2VbMJgrzGpN6MuiXupJRNPBeuRRCvu/PfljFFyiCS8W0imvGHFAwgZodphVWJvkUVhXoqo33p+2DU/aZ3g5040PVCX6Ql2VXmO7Ac7SnpFyjjhdRqSjQNbh7Funo762MIpAtQxZFHUMIkiFvfJgXlo+rk2RVtUMHhn1RZH2OGbEJm3zyJe62ZwfGuI1Kf5hpoPi36tFhABcXPZrrvDlrmnmLQli/B6zSf0AuMcOKLkIBtcKsuLwvZeg2lz3QmuQicjg4E0nb7a9iIoeyrg+3QzFeaebAK+ejWBVcgqGkeOLZkBjn+RR+HVo3/tXTT7RcViUdHZiHHT+2ksDtjcDE3ZJgDDQ308JOoI1vjbqpkfNL1R5KSIfLe+Lno41RROpxg3yanixZvyaTOegyH6IyymqVUQAs2/4Wmw18Jz0p5W4FXnKTS8h3Q9kJR8zeBX/Qp0yLAxMsl1iSiLzw81c/tFRR6i33jJ31CJAVap5MaBRKtJHuACTcfrRBhMCCGupSSH24n7bJpNKDtfCMiH0pm8uwtliKpWrFxatkhCz2421/LroxCxBED1ARiLBNlmK5Tyno6CmuapTtDMcRK5TXH6FKZQk7tQ8Ekixc27aOzNY1GKbKLrBs+R2XwZ24=
+jobs:
+  include:
+  - stage: package
+    name: Create Release Package
+    if: branch = master
+    script: chmod +x package.sh && ./package.sh -y
