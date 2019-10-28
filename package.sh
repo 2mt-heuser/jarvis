@@ -149,7 +149,7 @@ cp -r ../scripts/ . || status_error
 cp -r ../.env.example . || status_error
 cp -r ../external-scripts.json . || status_error
 cp -r ../package.json . || status_error
-cp -r ../package.lock.json . || status_error
+cp -r ../package-lock.json . || status_error
 status_ok
 
 status_msg "Package everything together"
