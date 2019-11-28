@@ -3,25 +3,11 @@
 //  Random stuff to try out / in development / WIP
 
 module.exports = (robot) => {
-  robot.respond(/attach/, (res) => {
+  robot.respond(/test/, (res) => {
+    let channel = robot.adapter.client.findChannelByName('botspam');
     res.finish();
-    let message = {
-      props: {
-        attachments: [
-          {
-            text: "test-attachment",
-            color: "#FF8000",
-            pretext: "this is the attachments pretext"
-          },
-          {
-            text: "test-attachment #2",
-            color: "#08AA99",
-            pretext: "this is another attachments pretext"
-          }
-        ]
-      }
-    };
-    res.reply(message);
+    res.envelope.room = channel.id;
+    res.reply('test');
   });
   // robot.respond(/guten morgen/i, (res) => {
   //   res.finish();

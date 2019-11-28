@@ -31,8 +31,8 @@ module.exports = (robot) => {
   });
 
   client.on('message', function (topic, message) {
-    console.log(topic.toString() + ': ' + message.toString());
-    robot.adapter.client.postMessage('received via MQTT: ' + message.toString(), '6ryaj6bnkpbr3nxooemqy4xnca')
+    let channel = robot.adapter.client.findChannelByName('botspam');
+    robot.adapter.client.postMessage('received via MQTT: ' + message.toString(), channel.id)
   });
   robot.respond(ruleMatch, (response) => {
     response.finish();
@@ -46,9 +46,8 @@ module.exports = (robot) => {
         ]
       }
     };
-    console.log(response.envelope.room.toString());
-    console.log(response.message.user.name.toString());
-    response.envelope.room = '6ryaj6bnkpbr3nxooemqy4xnca';
+    let channel = robot.adapter.client.findChannelByName('botspam');
+    response.envelope.room = channel.id;
     response.send(message);
   });
 };
