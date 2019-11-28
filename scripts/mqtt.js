@@ -16,23 +16,25 @@ let client = mqtt.connect(process.env.MQTT_URL, {
   "port": process.env.MQTT_PORT
 });
 
-client.on('connect', function () {
-  client.subscribe('jarvis/cmnd/test', function (err) {
-    if (!err) {
-      client.publish('jarvis/stat/test', 'Hello mqtt')
-    }
-  })
-});
 
-client.on('message', function (topic, message) {
-  console.log(topic.toString() + ': ' + message.toString());
-});
 
 module.exports = (robot) => {
   robot.brain.on("connected", () => {
     console.log("Setting the property");
     robot.brain.set("channel.botspam", "6ryaj6bnkpbr3nxooemqy4xnca");
     console.log("SET!");
+  });
+  client.on('connect', function () {
+    client.subscribe('jarvis/cmnd/test', function (err) {
+      if (!err) {
+        client.publish('jarvis/stat/test', 'Hello mqtt')
+      }
+    })
+  });
+
+  client.on('message', function (topic, message) {
+    console.log(topic.toString() + ': ' + message.toString());
+    robot.adapter.client.postMessage('received via MQTT: ' + message.toString(), robot.brain.get('channel.botspam'))
   });
   robot.respond(ruleMatch, (response) => {
     response.finish();
