@@ -16,8 +16,6 @@ let client = mqtt.connect(process.env.MQTT_URL, {
   "port": process.env.MQTT_PORT
 });
 
-
-
 module.exports = (robot) => {
   robot.brain.on("connected", () => {
     console.log("Setting the property");
@@ -34,7 +32,7 @@ module.exports = (robot) => {
 
   client.on('message', function (topic, message) {
     console.log(topic.toString() + ': ' + message.toString());
-    robot.adapter.client.postMessage('received via MQTT: ' + message.toString(), robot.brain.get('channel.botspam'))
+    robot.adapter.client.postMessage('received via MQTT: ' + message.toString(), '6ryaj6bnkpbr3nxooemqy4xnca')
   });
   robot.respond(ruleMatch, (response) => {
     response.finish();
@@ -50,7 +48,7 @@ module.exports = (robot) => {
     };
     console.log(response.envelope.room.toString());
     console.log(response.message.user.name.toString());
-    response.envelope.room = robot.brain.get('channel.botspam');
+    response.envelope.room = '6ryaj6bnkpbr3nxooemqy4xnca';
     response.send(message);
   });
 };
