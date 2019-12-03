@@ -1,1 +1,1 @@
-["hubot-redis-brain"]
+["hubot-redis-brain", "hubot-auth-persistent"]
