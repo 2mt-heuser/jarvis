@@ -4,4 +4,4 @@ node_modules
 Procfile
 /bin/*
 .env
-start.sh
+.idea
