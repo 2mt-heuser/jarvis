@@ -69,7 +69,7 @@ const animals = [
   'Geier',
 ];
 
-let remaining = animals.splice();
+let remaining = animals.slice();
 let pwd = '';
 
 module.exports = (robot) => {
@@ -87,12 +87,14 @@ module.exports = (robot) => {
         attachments: [
           {
             text: pwd,
-            color: '#AA0000',
+            color: '#009900',
           },
         ],
       },
     };
     response.envelope.room = response.message.user.name;
     response.send(message);
+    remaining = animals.slice();
+    pwd = '';
   });
 };
