@@ -26,7 +26,7 @@ const farewell = [
 module.exports = (robot) => {
   robot.respond(ruleMatch, (res) => {
     res.finish();
-    let farewell = farewell[Math.floor(Math.random() * farewell.length)];
-    res.reply(farewell);
+    let response = farewell[Math.floor(Math.random() * farewell.length)];
+    res.reply(response);
   });
 };
